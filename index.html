@@ -9,6 +9,12 @@
     <!-- Add the evo-calendar.css for styling -->
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,7 +25,74 @@
     <!-- Add the evo-calendar.js for.. obviously, functionality! -->
     <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
     <script>
-        $("#calendar").evoCalendar();
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendar = new EvoCalendar({
+                theme: 'Midnight Blue',
+                format: 'yyyy-mm-dd',
+                titleFormat: 'MM yyyy',
+                eventHeaderFormat: 'MM d, yyyy',
+                language: 'en',
+                sidebarDisplayDefault: true,
+                sidebarToggler: true,
+                eventListToggler: true,
+                sidebarPosition: 'right',
+                calendarEvents: [
+                    {
+                        id: 'event1',
+                        name: 'Meeting',
+                        date: '2023-06-08',
+                        description: 'Lorem ipsum dolor sit amet',
+                        badge: 'Important',
+                        badgeColor: '#FF0000',
+                        textColor: '#FFFFFF',
+                        borderColor: '#FF0000'
+                    },
+                    {
+                        id: 'event2',
+                        name: 'Holiday',
+                        date: '2023-06-15',
+                        description: 'Lorem ipsum dolor sit amet',
+                        badge: 'Public',
+                        badgeColor: '#00FF00',
+                        textColor: '#000000',
+                        borderColor: '#00FF00'
+                    }
+                ],
+                onSelectDate: function (event) {
+                    console.log(event);
+                },
+                onAddEvent: function (event) {
+                    console.log(event);
+                },
+                onRemoveEvent: function (event) {
+                    console.log(event);
+                },
+                onEventClick: function (event, eventEl) {
+                    console.log(event);
+                    console.log(eventEl);
+                },
+                onMonthChange: function (event) {
+                    console.log(event);
+                },
+                onYearChange: function (event) {
+                    console.log(event);
+                },
+                onSidebarToggle: function (event) {
+                    console.log(event);
+                },
+                onEventListToggle: function (event) {
+                    console.log(event);
+                },
+                onCalendarRender: function (event) {
+                    console.log(event);
+                },
+                onInit: function (event) {
+                    console.log(event);
+                }
+            });
+
+            calendar.init();
+        });
     </script>
 </body>
 
